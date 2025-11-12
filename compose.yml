@@ -1,0 +1,16 @@
+version: "2.4"
+services:
+  nginx:
+    container_name: proxy
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./sites-enabled/:/etc/nginx/sites-enabled/
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
